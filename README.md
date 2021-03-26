@@ -2,6 +2,8 @@
 
 Use scripting languages to build Camunda Delegates that can be updated during runtime executions.
 
+[Camunda Forum Discussion](https://forum.camunda.org/t/scripting-based-delegates-with-springboot-camunda-run-and-source-code-bean-runtime-refresh/26386)
+
 This means you can modify delegates after your BPMN has been deployed!
 
 Supports Groovy scripting to build springboot beans / Java Delegates
