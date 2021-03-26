@@ -1,3 +1,3 @@
 FROM camunda/camunda-bpm-platform:run-latest
 
-ADD https://github.com/StephenOTT/Camunda-Scripting-Delegates-Process-Engine-Plugin/releases/download/v1.0/CamundaScriptingDelegatesProcessEnginePlugin-1.0.jar /camunda/configuration/userlib
+ADD https://github.com/StephenOTT/Camunda-Scripting-Delegates-Process-Engine-Plugin/releases/download/v1.0.0/CamundaScriptingDelegatesProcessEnginePlugin-1.0.jar /camunda/configuration/userlib
