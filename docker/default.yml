@@ -1,0 +1,3 @@
+# Example file if you want to set a custom path
+camunda:
+  scriptingBeansXml: file:/camunda/configuration/camunda-beans.xml

@@ -1,0 +1,12 @@
+# This file requires that you have the CamundaScriptingDelegatesProcessEnginePlugin-1.0.jar in the same directory as the docker-compose.yml
+
+services:
+  camunda-server:
+    image: camunda/camunda-bpm-platform:run-latest
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./CamundaScriptingDelegatesProcessEnginePlugin-1.0.jar:/camunda/configuration/userlib/CamundaScriptingDelegatesProcessEnginePlugin-1.0.jar
+      - ./scripts:/scripts
+      - ./camunda-beans.xml:/camunda/configuration/camunda-beans.xml
+#      - ./default.yml:/camunda/configuration/default.xml # Used only if you want to set a custom path for the camunda-beans.xml file

@@ -1,0 +1,13 @@
+# This file uses the Dockerfile-camunda-run dockerfile, which will download the CamundaScriptingDelegatesProcessEnginePlugin-1.0.jar from the Github Release
+
+services:
+  camunda-server:
+    build:
+      context: .
+      dockerfile: Dockerfile-camunda-run
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./scripts:/scripts
+      - ./camunda-beans.xml:/camunda/configuration/camunda-beans.xml
+#      - ./default.yml:/camunda/configuration/default.xml # Used only if you want to set a custom path for the camunda-beans.xml file

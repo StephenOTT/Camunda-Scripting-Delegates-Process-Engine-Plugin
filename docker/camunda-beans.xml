@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/lang https://www.springframework.org/schema/lang/spring-lang.xsd">
+
+    <!--    https://docs.spring.io/spring-framework/docs/current/reference/html/languages.html#groovy-->
+
+    <lang:defaults refresh-check-delay="1000"/>
+
+    <lang:groovy id="MyDelegate1" script-source="file:/scripts/Test1.groovy"/>
+
+    <lang:groovy id="MyDelegate2" script-source="file:/scripts/Test2.groovy">
+<!--        <lang:property name="someField" value="someValue" />-->
+    </lang:groovy>
+
+</beans>
