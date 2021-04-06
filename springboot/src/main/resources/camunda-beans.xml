@@ -34,7 +34,7 @@
     <lang:groovy id="eventListener1" script-source="file:../docker/scripts/EventListener2.groovy" proxy-target-class="true"/>
     <lang:groovy id="myHandler" script-source="file:../docker/scripts/EventListenerHandler.groovy"/>
 
-    <lang:groovy id="grabExample" script-source="file:../docker/scripts/GrabExample.groovy"/>
+<!--    <lang:groovy id="grabExample" script-source="file:../docker/scripts/GrabExample.groovy"/>-->
 
     <lang:groovy id="myEnginePlugin" script-source="file:../docker/scripts/ProcessEnginePluginExample.groovy"/>
 

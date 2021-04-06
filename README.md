@@ -239,3 +239,69 @@ Result:
 You can connect to the jvm with a java debugger and set breakpoints on your groovy files.
 
 
+
+# REST API Scripting
+
+REST API Scripting is supported through the `workflowutils.WorkflowApi` interface.  Implement this interface in your script based class.
+
+Refresh is also supported! You can modify your script at runtime, and the endpoint will execute the latest version of the script.
+
+example:
+
+```groovy
+
+import org.camunda.bpm.engine.ProcessEngine
+import org.camunda.bpm.engine.RuntimeService
+import org.camunda.bpm.engine.TaskService
+import workflowutils.WorkflowApi
+import org.jetbrains.annotations.NotNull
+import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.ResponseEntity
+import javax.servlet.http.HttpServletRequest
+
+class MyCustomEndpoint implements WorkflowApi {
+
+    //The endpoint is configured through the workflowutils.WorkflowApi interface.
+    // The interface provides the wrapper utils for managing HTTP requests.
+
+    @Autowired
+    ProcessEngine processEngine
+
+    @Autowired
+    TaskService taskService
+
+    @Autowired
+    RuntimeService runtimeService
+
+//    @Override
+//    ResponseEntity<Object> handleRequest(@NotNull HttpServletRequest request) {
+//        return ResponseEntity.ok("123")
+//    }
+
+    @Override
+    ResponseEntity<Object> handleGet(@NotNull HttpServletRequest request) {
+        return ResponseEntity.ok("YES!!! queryString: " + request.queryString)
+    }
+}
+```
+
+then in your bean config add:
+
+```xml
+<lang:groovy id="myEndpoint" script-source="file:./MyCustomEndpoint.groovy"/>
+```
+
+See the `WorkflowApi` interface for more options for handling requests.
+
+By default, your endpoint would be: `/api/myEndpoint/`
+
+By default, the endpoint is exposed at: `/api/[beanId]/**`.  In the example above the `id` attribute of the `lang:groovy` xml would be the `beanId`.
+
+You can configure this behaviour in the camunda yml configuration:
+
+```yaml
+camunda:
+  scriptingEndpoint: true # Enables the endpoint for scripting usage
+  scriptingEndpointRoot: "/api" # The root the scripting endpoint will be exposed at.  Defaults to /api
+```
+
