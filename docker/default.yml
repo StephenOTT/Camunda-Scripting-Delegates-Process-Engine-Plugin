@@ -1,3 +1,5 @@
 # Example file if you want to set a custom path
 camunda:
-  scriptingBeansXml: file:/camunda/configuration/camunda-beans.xml
+  scriptingBeansXml: "file:/camunda/configuration/camunda-beans.xml"
+  scriptingEndpoint: true # Enables the endpoint for scripting usage
+  scriptingEndpointRoot: "/api" # The root the scripting endpoint will be exposed at.  Defaults to /api

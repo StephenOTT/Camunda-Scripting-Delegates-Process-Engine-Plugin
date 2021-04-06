@@ -1,5 +1,3 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
 val kotlinVersion: String by project
 val spekVersion: String by project
 val camundaVersion: String by project
@@ -19,11 +17,14 @@ dependencies {
     implementation(platform("org.camunda.bpm:camunda-bom:$camundaVersion"))
 
     implementation("org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter")
+    implementation(project(":gatewaypatch"))
 
     implementation("org.springframework.boot:spring-boot-starter-jdbc")
 
     implementation("org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-webapp")
-    implementation("org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-rest")
+//    implementation("org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter-rest")
+
+    implementation("org.springframework.boot:spring-boot-starter-web")
 
     implementation("org.jetbrains.kotlin:kotlin-stdlib-jdk8:$kotlinVersion")
     implementation("org.jetbrains.kotlin:kotlin-reflect:$kotlinVersion")
@@ -41,6 +42,10 @@ dependencies {
     testImplementation("org.springframework.boot:spring-boot-starter-test")
 
     implementation(project(":scriptingbeans"))
+
+    //https://github.com/spring-projects/spring-boot/issues/11028
+    //https://github.com/pambrose/kotlin-script-problem
+
 }
 
 application {
@@ -53,6 +58,8 @@ tasks {
         useJUnitPlatform()
     }
 }
+// https://youtrack.jetbrains.com/issue/KT-40937
+
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8

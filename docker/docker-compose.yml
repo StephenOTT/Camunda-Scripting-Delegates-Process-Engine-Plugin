@@ -5,8 +5,10 @@ services:
     image: camunda/camunda-bpm-platform:run-latest
     ports:
       - "8080:8080"
+    environment:
+      JAVA_OPTS: "-Dgroovy.grape.report.downloads=true -Divy.message.logger.level=4"
     volumes:
-      - ./CamundaScriptingDelegatesProcessEnginePlugin-1.0.jar:/camunda/configuration/userlib/CamundaScriptingDelegatesProcessEnginePlugin-1.0.jar
+      - ./CamundaScriptingDelegatesProcessEnginePlugin-1.1.0.jar:/camunda/configuration/userlib/CamundaScriptingDelegatesProcessEnginePlugin.jar
       - ./scripts:/scripts
       - ./camunda-beans.xml:/camunda/configuration/camunda-beans.xml
-#      - ./default.yml:/camunda/configuration/default.xml # Used only if you want to set a custom path for the camunda-beans.xml file
+      - ./default.yml:/camunda/configuration/default.yml

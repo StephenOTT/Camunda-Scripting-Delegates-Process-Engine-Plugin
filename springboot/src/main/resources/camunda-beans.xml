@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/lang https://www.springframework.org/schema/lang/spring-lang.xsd http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--    https://docs.spring.io/spring-framework/docs/current/reference/html/languages.html#groovy-->
+
+    <lang:defaults refresh-check-delay="1000"/>
+
+    <lang:groovy id="MyDelegate1" script-source="file:../docker/scripts/Test1.groovy"/>
+
+    <lang:groovy id="MyDelegate2" script-source="file:../docker/scripts/Test2.groovy">
+<!--        <lang:property name="someField" value="someValue" />-->
+    </lang:groovy>
+
+    <lang:groovy id="myDecision1" script-source="file:../docker/scripts/Decision1.groovy"/>
+    <lang:groovy id="myDecision2" script-source="file:../docker/scripts/Decision2.groovy"/>
+
+    <lang:groovy id="assignee1" script-source="file:../docker/scripts/Assignee1.groovy"/>
+    <lang:groovy id="date1" script-source="file:../docker/scripts/Date1.groovy"/>
+    <lang:groovy id="priority1" script-source="file:../docker/scripts/Priority1.groovy"/>
+    <lang:groovy id="taskName" script-source="file:../docker/scripts/TaskName.groovy"/>
+
+    <lang:groovy id="transientVar1" script-source="file:../docker/scripts/TransientVar1.groovy"/>
+
+    <lang:groovy id="myEndpoint" script-source="file:../docker/scripts/MyCustomEndpoint.groovy"/>
+
+<!--    EventListener annotations require the proxy-target-class="true" in order to function-->
+<!--    <lang:groovy id="eventListener1" script-source="file:../docker/scripts/EventListener1.groovy" proxy-target-class="true"/>-->
+
+<!--    Example of using a Handler pattern with a EventListener.  Allows you to refresh the handler code during runtime. See EventListener2.groovy for more details.-->
+    <lang:groovy id="eventListener1" script-source="file:../docker/scripts/EventListener2.groovy" proxy-target-class="true"/>
+    <lang:groovy id="myHandler" script-source="file:../docker/scripts/EventListenerHandler.groovy"/>
+
+    <lang:groovy id="grabExample" script-source="file:../docker/scripts/GrabExample.groovy"/>
+
+    <lang:groovy id="myEnginePlugin" script-source="file:../docker/scripts/ProcessEnginePluginExample.groovy"/>
+
+
+</beans>

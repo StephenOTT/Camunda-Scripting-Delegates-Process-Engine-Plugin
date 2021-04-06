@@ -1,2 +1,2 @@
 rootProject.name = "CamundaScriptingDelegatesProcessEnginePlugin"
-include("scriptingbeans", "springboot", "delegatedev")
+include("scriptingbeans", "springboot", "delegatedev", "gatewaypatch")

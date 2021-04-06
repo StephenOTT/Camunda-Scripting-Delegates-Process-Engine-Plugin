@@ -24,10 +24,10 @@ dependencies {
 
 
     implementation("org.codehaus.groovy:groovy-all:3.0.7")
+//    runtimeOnly("org.apache.ivy:ivy:2.5.0")
 
     compileOnly("org.camunda.bpm.springboot:camunda-bpm-spring-boot-starter")
-
-
+    compileOnly("org.springframework.boot:spring-boot-starter-web")
 
 }
 

@@ -1,0 +1,30 @@
+//val kotlinVersion: String by project
+//val spekVersion: String by project
+//val camundaVersion: String by project
+//
+//plugins {
+//    id("com.github.johnrengelman.shadow")
+
+//    id("org.jetbrains.kotlin.plugin.spring")
+//    id("com.lazan.java-monkey-patch") version "1.0"
+//
+//}
+
+plugins {
+    id "com.lazan.java-monkey-patch" version "1.0"
+    id("org.jetbrains.kotlin.jvm")
+    id("org.jetbrains.kotlin.kapt")
+    id("org.jetbrains.kotlin.plugin.allopen")
+}
+
+monkeyPatch {
+    target ="org.camunda.bpm:camunda-engine:7.14.0"
+}
+
+dependencies {
+    compileOnly(project(":scriptingbeans"))
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}

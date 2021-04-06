@@ -1,7 +1,7 @@
 import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
-    val kotlinVersion = "1.4.10"
+    val kotlinVersion = "1.4.31"
     application
     id("com.github.johnrengelman.shadow") version "5.1.0" apply false
     id("org.jetbrains.kotlin.jvm") version kotlinVersion apply false
@@ -21,7 +21,7 @@ idea {
 
 allprojects {
 
-    version = "1.0"
+    version = "1.1.0"
     group = "com.github.stephenott"
 
     repositories {

@@ -5,7 +5,9 @@ spring:
     password: ''
 
 camunda:
-  scriptingBeansXml: file:../scripts/camunda-beans.xml
+  scriptingBeansXml: /camunda-beans.xml # Where the beans are configured
+  scriptingEndpoint: true # Enables the endpoint for scripting usage
+  scriptingEndpointRoot: "/api" # The root the scripting endpoint will be exposed at.  Defaults to /api
   bpm:
     admin-user:
       id: admin
@@ -13,6 +15,10 @@ camunda:
     history-level: full
     job-execution:
       deployment-aware: false
-#spring:
+    eventing:
+      execution: true
+      history: true
+      task: true
+  #spring:
 #  jersey:
 #    application-path: /rest
